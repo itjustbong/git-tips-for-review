@@ -10,21 +10,33 @@ type Todo = {
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
 
+  const handleAddTodo = (title: string) => {
+    setTodos((prevTodos) => [
+      ...prevTodos,
+      { completed: false, id: `${Date.now()}`, title },
+    ]);
+  };
+
   return (
     <section>
-      <Header />
+      <Header onAddTodo={handleAddTodo} />
       <TodoList todos={todos} />
     </section>
   );
 }
 
-function Header() {
+function Header({ onAddTodo }: { onAddTodo(title: string): void }) {
   const [text, setText] = useState('');
 
   return (
     <input
       onChange={(e) => {
         setText(e.target.value);
+      }}
+      onKeyDown={(e) => {
+        if (e.code === 'Enter') {
+          onAddTodo(text);
+        }
       }}
     />
   );
