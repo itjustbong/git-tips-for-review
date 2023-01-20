@@ -10,7 +10,24 @@ type Todo = {
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
 
-  return <TodoList todos={todos} />;
+  return (
+    <section>
+      <Header />
+      <TodoList todos={todos} />
+    </section>
+  );
+}
+
+function Header() {
+  const [text, setText] = useState('');
+
+  return (
+    <input
+      onChange={(e) => {
+        setText(e.target.value);
+      }}
+    />
+  );
 }
 
 function TodoList({ todos }: { todos: Todo[] }) {
