@@ -66,3 +66,29 @@
   - 코드 리뷰(코멘트)는 작성 순서에 따라, `Conversation`탭에 기록됨을 활용
     ![셀프 코멘트를 활용한 코드리뷰](public/review-via-self-comment.png)
   - PR 요청자가 직접 본인의 코드를 다른 개발자가 이해하기 쉽게 코멘트를 달아 코드를 설명하는 것
+
+  #### 기타
+
+  - **Draft** PR
+    - 나 아직 이 브런치에 대해서 작업이 끝난 것은 아님!
+      수정되거나 롤백 등등 변동사항이 있을 수 있다는 것을 의미하게됨
+  - GitEmoji
+    - 이모지로 의도를 나타낼 수 있음
+      ![gitemoji](public/gitemoji.png)
+  - The Fuck - 잘 못 입력한 명령어를 자동으로 예측해서 "너 이거할라 했지?"라고 물어봄
+    ![theFuck](public/thefuck.png)
+  - zsh hangul - 터미널 환경에서 한국어 입력시 자동 변환
+    ![zsh-hangul](public/zsh-hangul.gif)
+
+### 리모트 저장소에 올라간 커밋 변경하기
+
+- VSCode의 확장프로그램인 GitLens가 설치되어 있다는 것을 가정
+- 터미널에서 코드에디터를 vim이 아닌 VSCode로 세팅하기 <br/>
+  `git config --global core.editor "code --wait"`
+
+#### **STEP1** rebase 명령어 및 git lens
+
+- git rebase -i HEAD^1
+  ![git-lens](public/git-lens.png)
+- 위 사진의 `git-lens` 화면에서 커밋 내역을 확인, 수정할 수 있음
+  - 작성 중...
