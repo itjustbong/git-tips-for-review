@@ -47,13 +47,15 @@
 
   #### **STEP3** 깃허브 **feat/main-page** PR 생성
 
-  - Github PR 화면
+  - Github PR 예시 1
     ![PR 내용](public/pr-page-commit.png)
+  - Github PR 예시 2 (with PR 포인트)
+    ![PR with PR 포인트](public/pr-with-point.png)
   - Comment에 담기는 내용
     - 템플릿에 따라 다르지만, 설명하고자 하는 PR 포인트를 작성하면 좋음
       - PR 포인트는 커밋 히스토리에 뜨는, 커밋 해쉬 값의 링크를 가져오면 알아서 해줌! <br/>(커밋 메시지를 코멘트 창에 보여줌)
 
-  #### **STEP4-커밋순서기반** 깃허브 코드리뷰
+  #### **STEP4-커밋순서기반** 코드리뷰
 
   - PR 페이지에서 **커밋 탭** 활용
     ![커밋 기록을 통한 코드리뷰](public/review-via-commit.png)
@@ -61,7 +63,7 @@
   - 코드리뷰 작성 시, `Start a review` 를 통해서 리뷰 코멘트
   - 다음 커밋에 대한 코드리뷰 시에, `Next` 를 통해 다음 커밋에 대한 변경 사항 확인 가능
 
-  #### **STEP4-셀프코멘트** 깃허브 코드리뷰
+  #### **STEP4-셀프코멘트** 코드리뷰
 
   - 코드 리뷰(코멘트)는 작성 순서에 따라, `Conversation`탭에 기록됨을 활용
     ![셀프 코멘트를 활용한 코드리뷰](public/review-via-self-comment.png)
