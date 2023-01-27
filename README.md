@@ -21,7 +21,7 @@
 
 ## 📌 실습
 
-### Todo App 개발시, 브런치 및 커밋 예시
+### 👻 Todo App 개발시, 브런치 및 커밋 예시
 
 - **핵심:** 커밋을 자주 활용하여 히스토리 남기기 for 코드리뷰
 
@@ -82,15 +82,69 @@
   - zsh hangul - 터미널 환경에서 한국어 입력시 자동 변환
     ![zsh-hangul](public/zsh-hangul.gif)
 
-### 리모트 저장소에 올라간 커밋 변경하기
+### 👻 git rebase
+
+#### 활용 가능 사례
+
+- 리모트 저장소에 올라간 커밋 변경하기
+-
+
+#### 사전 준비
 
 - VSCode의 확장프로그램인 GitLens가 설치되어 있다는 것을 가정
 - 터미널에서 코드에디터를 vim이 아닌 VSCode로 세팅하기 <br/>
   `git config --global core.editor "code --wait"`
 
-#### **STEP1** rebase 명령어 및 git lens
+#### rebase 명령어 및 git lens
 
-- git rebase -i HEAD^1
-  ![git-lens](public/git-lens.png)
-- 위 사진의 `git-lens` 화면에서 커밋 내역을 확인, 수정할 수 있음
-  - 작성 중...
+- git rebase -i [커밋]
+  - rebase 는 현재 브런치의 HEAD 포인터를 이동시킬 수 있음
+    - 위 특성을 활용하여, 과거 커밋을 변경할 수 있음
+  - `-i` 옵션은 `interactive`의 약자로, 말 그대로 소통(?)을 통해 작업할 수 있음
+  - [커밋]의 위치에는 `수정할 커밋의 이전 커밋`을 써주면 됨 (HEAD~3 등)
+  - 각각의 커밋을 확인할 수 있음(사진 첨부)
+    - ![git-lens](public/git-rebase.png)
+    - [명령어] [커밋 해시] [커밋 메시지] 를 순서대로 확인할 수 있음
+    - 각각의 커밋에 대한 명령어 확인 가능
+
+#### rebase -i 명령어 옵션들
+
+- pick (p)
+  - 커밋을 그대로 유지
+  - 커밋의 순서를 바꾸거나, 커밋 자체를 삭제할 수 있음
+- reword (r)
+  - 커밋 메시지 수정
+  - 해당 명령어 작성 후, 편집기를 닫으면, 해당 커밋을 수정할 수 있는 편집기가 또 뜸
+- edit (e)
+  - 커밋의 작업 내용(커밋 메시지 포함)도 수정할 수 있도록 해줌
+  - 편집기를 닫으면, 해당 커밋으로 HEAD가 옮겨짐
+  - 커밋 수정 -> `git commit --amend`
+  - 중간 커밋 추가 -> `git add 및 commit -m`
+  - 수정 완료 -> `git rebase --continue`
+- squash (s), fixup (f)
+
+  - 해당 커밋을 이전 커밋과 합치는 것
+  - 대체로, PR merge시에 squash 머지 옵션이 있음
+  - squash는 커밋 메시지를 합치는 것이고, fixup은 이전의 커밋 메시지만 남김
+
+- exec (e)
+  - 리베이스 도중 실행할 쉘 커맨드를 작성할 수 있음
+- break (b)
+  - 해당 라인에서 rebase를 일시중지 하라는 의미
+  - `pick ~~ / pick ~~ / break / pick ~~` 이런 식으로 작성하면,<br /> break 라인에서 rebase가 일시중지 됨
+  - 직전 커밋까지 리베이스를 마치게 되고, <br /> `git rebase --continue` 명령어를 통해 다시 리베이스를 진행할 수 있음
+- drop (d)
+  - 해당 커밋을 명싲거으로 삭제하는 명령어
+  - pick 명령어로 삭제하는 것과 동일
+- merge (m)
+
+  - merge 커밋을 만들면서 merge하는 명령어
+  - 다른 브런치의 커밋 해시를 활용하면 됨
+  - `merge asdf23452`
+
+#### 주의 사항
+
+- 이미 원격에 push 된 상태라면, 주의가 필요
+- 로컬에서 수정된 커밋 내용을 원격에 push 하기 위해서는, `git push -f` 명령어를 사용해야 함
+  - 단, 해당 브런치에서 함께 작업하는 동료가 있다면 주의가 필요
+  - ⚠️ 리베이스는 기존의 커밋을 재사용하지 않고, 내용이 같은 커밋을 만들어버림
