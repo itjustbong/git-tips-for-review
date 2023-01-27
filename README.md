@@ -164,3 +164,24 @@
     ![cherry-1.png](public/cherry-1.png)
     ![cherry-2.png](public/cherry-2.png)
 - cherry-pick은 커밋을 복사하는 것으로, <br /> 기존 브런치에도 커밋이 남아있음
+
+## 📌 브런치를 합치는 3가지 방법
+
+### merge
+
+- A 브런치에서 B 브런치를 합칠때, 시간의 순서대로 커밋이 재 정렬되어 머지됨
+- 또한 마지막에 MC (Merge Commit)이 하나 더 붙게 되는데,<br/>병합에 대한 충돌이 있을 때 뒤에 Commit을 붙여 해결
+  ![merge.png](public/merge.png)
+
+### squash & merge
+
+- A브런치에서 B 브런치를 합칠때, B 브런치의 커밋을 squash해서 하나의 커밋으로 만들고 병합
+- 만약 충돌이 있더라도 B브런치에서 MC를 만들고 전체 커밋을 squash 진행
+  ![squash.png](public/squash.png)
+
+### rebase
+
+- A 브런치에서 B 브런치를 합칠때, 커밋의 순서와 상관없이, B브런치의 커밋을 A브런치 커밋 뒤에 붙임
+- MC와 같은 충돌 해결 커밋이 생기지 않는데, 이것은 B 브런치의 커밋들이 수정되기 때문
+- 위와 같은 이유로 리모트에 올리기 위해서는 `git push -f`가 필요함
+  ![rebase.png](public/rebase.png)
