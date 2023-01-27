@@ -19,20 +19,18 @@
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 - [GitEmoji](https://marketplace.visualstudio.com/items?itemName=seatonjiang.gitmoji-vscode)
 
-## 📌 실습
-
-### 👻 Todo App 개발시, 브런치 및 커밋 예시
+## 📌 Todo App 개발시, 브런치 및 커밋 예시
 
 - **핵심:** 커밋을 자주 활용하여 히스토리 남기기 for 코드리뷰
 
-  #### **STEP1** 초기 세팅 및 필요없는 파일 제거시,<br/>
+  ### **STEP1** 초기 세팅 및 필요없는 파일 제거시,<br/>
 
   🧭 브런치 main -> **Tidy up**<br/>
   ✏️ 커밋 메시지
 
   > 🔥 create-vite-app 이 만들어준 쓸데없는 파일 제거 <br/> - 이미지, css, 기본 페이지 제거함
 
-  #### **STEP2** Todo 앱에서 Todo 메인 페이지를 구현했다면,<br/>
+  ### **STEP2** Todo 앱에서 Todo 메인 페이지를 구현했다면,<br/>
 
   🧭 브런치 main -> **feat/main-page**<br/>
   ✏️ 커밋 메시지
@@ -45,7 +43,7 @@
 
   > ✨ addTodo 기능 추가 <br/>- 투두가 추가되는 로직 구현<br/>
 
-  #### **STEP3** 깃허브 **feat/main-page** PR 생성
+  ### **STEP3** 깃허브 **feat/main-page** PR 생성
 
   - Github PR 예시 1
     ![PR 내용](public/pr-page-commit.png)
@@ -55,7 +53,7 @@
     - 템플릿에 따라 다르지만, 설명하고자 하는 PR 포인트를 작성하면 좋음
       - PR 포인트는 커밋 히스토리에 뜨는, 커밋 해쉬 값의 링크를 가져오면 알아서 해줌! <br/>(커밋 메시지를 코멘트 창에 보여줌)
 
-  #### **STEP4-커밋순서기반** 코드리뷰
+  ### **STEP4-커밋순서기반** 코드리뷰
 
   - PR 페이지에서 **커밋 탭** 활용
     ![커밋 기록을 통한 코드리뷰](public/review-via-commit.png)
@@ -63,13 +61,13 @@
   - 코드리뷰 작성 시, `Start a review` 를 통해서 리뷰 코멘트
   - 다음 커밋에 대한 코드리뷰 시에, `Next` 를 통해 다음 커밋에 대한 변경 사항 확인 가능
 
-  #### **STEP4-셀프코멘트** 코드리뷰
+  ### **STEP4-셀프코멘트** 코드리뷰
 
   - 코드 리뷰(코멘트)는 작성 순서에 따라, `Conversation`탭에 기록됨을 활용
     ![셀프 코멘트를 활용한 코드리뷰](public/review-via-self-comment.png)
   - PR 요청자가 직접 본인의 코드를 다른 개발자가 이해하기 쉽게 코멘트를 달아 코드를 설명하는 것
 
-  #### 기타
+  ### 기타
 
   - **Draft** PR
     - 나 아직 이 브런치에 대해서 작업이 끝난 것은 아님!
@@ -82,20 +80,19 @@
   - zsh hangul - 터미널 환경에서 한국어 입력시 자동 변환
     ![zsh-hangul](public/zsh-hangul.gif)
 
-### 👻 git rebase
+## 📌 git rebase
 
-#### 활용 가능 사례
+### 활용 가능 사례
 
 - 리모트 저장소에 올라간 커밋 변경하기
--
 
-#### 사전 준비
+### 사전 준비
 
 - VSCode의 확장프로그램인 GitLens가 설치되어 있다는 것을 가정
 - 터미널에서 코드에디터를 vim이 아닌 VSCode로 세팅하기 <br/>
   `git config --global core.editor "code --wait"`
 
-#### rebase 명령어 및 git lens
+### rebase 명령어 및 git lens
 
 - git rebase -i [커밋]
   - rebase 는 현재 브런치의 HEAD 포인터를 이동시킬 수 있음
@@ -107,7 +104,7 @@
     - [명령어] [커밋 해시] [커밋 메시지] 를 순서대로 확인할 수 있음
     - 각각의 커밋에 대한 명령어 확인 가능
 
-#### rebase -i 명령어 옵션들
+### rebase -i 명령어 옵션들
 
 - pick (p)
   - 커밋을 그대로 유지
@@ -142,7 +139,7 @@
   - 다른 브런치의 커밋 해시를 활용하면 됨
   - `merge asdf23452`
 
-#### 주의 사항
+### 주의 사항
 
 - 이미 원격에 push 된 상태라면, 주의가 필요
 - 로컬에서 수정된 커밋 내용을 원격에 push 하기 위해서는, `git push -f` 명령어를 사용해야 함
