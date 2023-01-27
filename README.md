@@ -186,9 +186,26 @@
 - 위와 같은 이유로 리모트에 올리기 위해서는 `git push -f`가 필요함
   ![rebase.png](public/rebase.png)
 
+## 📌 기타 참고 사항
+
+### git checkout이 분리됨
+
+- ❓ 담당하는 역할이 많았음 (브런치 변경 + 작업 파일 복구)
+
+- git checkout
+  - 브런치 변경 및 작업 트리 파일 복구
+- git switch
+  - 브런치 변경
+  - 브런치를 생성하면서 이동하려면 `git swtich -c feat`
+- git restore
+  - 작업 중인 파일 중 마지막 커밋에 해당하는 상태로 되돌리고자 할때 사용
+  - `git restore README.md`
+  - 기존에는 `git checkout -- README.md`였음
+
 ## 📌 참고자료
 
 - [[git] merge, squash & merge 그리고 rebase의 원리에 대해서 알아보자](https://sabarada.tistory.com/196)
 - [Git Rebase --Interactive 옵션 알아보기](https://wormwlrm.github.io/2020/09/03/Git-rebase-with-interactive-option.html)
 - [gomjellie 특강 (?)](https://github.com/gomjellie)
 - [naver FE 뉴스](https://github.com/naver/fe-news)
+- [새 버전에 맞게 git checkout 대신 switch/restore 사용하기](https://blog.outsider.ne.kr/1505)
