@@ -185,3 +185,10 @@
 - MC와 같은 충돌 해결 커밋이 생기지 않는데, 이것은 B 브런치의 커밋들이 수정되기 때문
 - 위와 같은 이유로 리모트에 올리기 위해서는 `git push -f`가 필요함
   ![rebase.png](public/rebase.png)
+
+## 📌 참고자료
+
+- [[git] merge, squash & merge 그리고 rebase의 원리에 대해서 알아보자](https://sabarada.tistory.com/196)
+- [Git Rebase --Interactive 옵션 알아보기](https://wormwlrm.github.io/2020/09/03/Git-rebase-with-interactive-option.html)
+- [gomjellie 특강 (?)](https://github.com/gomjellie)
+- [naver FE 뉴스](https://github.com/naver/fe-news)
